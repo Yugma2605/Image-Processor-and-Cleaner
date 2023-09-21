@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% if not user %}
+    <h1>New user please log in</h1>
+    {% else %}
+    <h1>
+        Welcome {{ user.username }} 
+    </h1>
+    {% endif %}
+
+    <span ><a  class="hello-msg" href="{% url 'logout' %}">Logout</a></span>
+</body>
+
+</html>

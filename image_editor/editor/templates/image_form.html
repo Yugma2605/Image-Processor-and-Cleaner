@@ -1,0 +1,141 @@
+{% block content %}
+
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/d2c6d8e9d6.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <style>
+    .drag-drop-panel {
+      background-color: #32323c;
+      color: #fff;
+      text-align: center;
+      min-width: 100%;
+      min-height: 100%;
+      border: 2px dashed #707070;
+      box-shadow: 0 19px 38px rgb(0 0 0 / 30%), 0 15px 12px rgb(0 0 0 / 22%);
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      height: 400;
+    }
+    body{
+      background-color: #32323c;
+    }
+    .badge-danger{
+      height: 20px;
+    }
+    .my-select-menu::part(button){
+    color: white;
+    background-color: #f00;
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .my-select-menu::part(listbox) {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid red;
+    border-radius: 5px;
+  }
+  select {
+        margin-bottom: 10px;
+        margin-top: 10px;
+        font-family: cursive, sans-serif;
+        outline: 0;
+        background: #f2ffe6;
+        color: black;
+        border: 1px solid crimson;
+        padding: 4px;
+        border-radius: 9px;
+      }
+  </style>
+  <script>
+
+    function gamma() {
+
+      document.write('hi!');
+    } 
+  </script>
+  <center>
+    <nav class="navbar navbar-dark bg-danger">
+      <a class="navbar-brand fs-2 text-white" href="/">My <span class="text-white">Editor</span></a>
+    </nav>
+    <br>
+    <br>
+
+    <div class="container">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="d-flex justify-content-center">
+
+          <div class="col-lg-4 ">
+            
+
+            <p>
+              <button type="button" class="btn btn-danger">Filters:</button>
+              <select name="filters" id="id_filters">
+                <option value="gamma" selected="">gamma</option>
+
+                <option value="log">log</option>
+
+                <option value="histogram">histogram</option>
+
+                <option value="contrast">contrast</option>
+
+                <option value="median">median</option>
+
+                <option value="max">max</option>
+
+                <option value="min">min</option>
+
+                <option value="erode">erode</option>
+
+                <option value="dilate">dilate</option>
+
+                <option value="mode">mode</option>
+
+                <option value="mean">mean</option>
+
+                <option value="Laplacian">Laplacian</option>
+
+                <option value="Ideal_low_Pass">Ideal Low Pass</option>
+
+                <option value="Ideal_high_Pass">Ideal high Pass</option>
+
+                <option value="Butterworth_low_Pass">Butterworth low Pass</option>
+
+                <option value="Butterworth_high_Pass">Butterworth high Pass</option>
+
+                <option value="sketch">Sketch</option>
+
+                <option value="erode_dilate">Erode & Dilate</option>
+
+              </select>
+            </p>
+            <button type="submit" class="btn btn-danger">Submit</button>
+          </div>
+
+          <div class="col-lg-8 ">
+
+            <div class="drag-drop-panel">
+              <div style="display: flex; flex-direction: column;"><i class="fas fa-image"></i>
+                <p>
+                  <input type="file" name="image" accept="image/*" required="" id="id_image" style="display:none;"><span
+                    style="font-size: 17px;"></span>
+                    <label for="id_image">Upload Image</label>
+              </div>
+            </div>
+
+    
+          </div>
+
+        </div>
+      </form>
+    </div>
+
+
+  </center>
+  {% endblock content %}
